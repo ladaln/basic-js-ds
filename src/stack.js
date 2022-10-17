@@ -13,22 +13,21 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 class Stack {
-  _arr = []
-
+  constructor()
+  {
+    this.items = [];
+  }
   push(element) {
-    this._arr = this._arr.concat(element)
+    this.items.push(element);
   }
 
   pop() {
-    if(this._arr.length == 0) return undefined
-    let res = this._arr[this._arr.length - 1]
-    this._arr = this._arr.slice(0, this._arr.length - 1)
-    return res
+    if (this.items.length === 0) return "Underflow";
+    return this.items.pop();
   }
 
   peek() {
-    if(this._arr.length == 0) return undefined
-    return this._arr[this._arr.length - 1]
+    return this.items[this.items.length - 1];
   }
 }
 
